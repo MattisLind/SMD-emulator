@@ -14,39 +14,39 @@ The B cable is the data cable and attaches to each of the disc drives.
 
 #### A cable pinout
 
-| Low pin | High pin | Signal name       |
-|---------|----------|-------------------|
-|   1     |   31     | Tag 1             |
-|   2     |   32     | Tag 2             |
-|   3     |   33     | Tag 3             |
-|   4     |   34     | Bus 0             |
-|   5     |   35     | Bus 1             |
-|   6     |   36     | Bus 2             |
-|   7     |   37     | Bus 3             |
-|   8     |   38     | Bus 4             |
-|   9     |   39     | Bus 5             |
-|  10     |   40     | Bus 6             |
-|  11     |   41     | Bus 7             |
-|  12     |   42     | Bus 8             |
-|  13     |   43     | Bus 9             |
-|  14     |   44     | Open Cable Detect |
-|  15     |   45     | Fault             |
-|  16     |   46     | Channel Ready     |
-|  17     |   47     | On Cylinder       |
-|  18     |   48     | Index             |
-|  19     |   49     | Unit Ready        |
-|  20     |   50     | (AM Found)  (1)   |
-|  21     |   51     | (Busy)  (2)       |
-|  22     |   52     | Unit Select Tag   |
-|  23     |   53     | Unit Select bit 0 |
-|  24     |   54     | Unit Select bit 1 |
-|  25     |   55     | Sector            |
-|  26     |   56     | Unit Select bit 2 |
-|  27     |   57     | Unit Select bit 3 |
-|  28     |   58     | Write Protected   |
-|  29     |          | Pick              |
-|         |   58     | Hold              |
-|  30     |   60     | (Tag 4) (3)       |
+| Low pin | High pin | Signal name       | Used by emulation |
+|---------|----------|-------------------|-------------------|
+|   1     |   31     | Tag 1             |         Y         |
+|   2     |   32     | Tag 2             |         Y         |
+|   3     |   33     | Tag 3             |         Y         |
+|   4     |   34     | Bus 0             |         Y         |
+|   5     |   35     | Bus 1             |         Y         |
+|   6     |   36     | Bus 2             |         Y         |
+|   7     |   37     | Bus 3             |         Y         |
+|   8     |   38     | Bus 4             |         Y         |
+|   9     |   39     | Bus 5             |         Y         |
+|  10     |   40     | Bus 6             |         Y         |
+|  11     |   41     | Bus 7             |         Y         |
+|  12     |   42     | Bus 8             |         Y         |
+|  13     |   43     | Bus 9             |         Y         |
+|  14     |   44     | Open Cable Detect |         Y         |
+|  15     |   45     | Fault             |         Y         |
+|  16     |   46     | Seek Error        |         Y         |
+|  17     |   47     | On Cylinder       |         Y         |
+|  18     |   48     | Index             |         Y         |
+|  19     |   49     | Unit Ready        |         Y         |
+|  20     |   50     | (AM Found)  (1)   |         N         |
+|  21     |   51     | (Busy)  (2)       |         N         |
+|  22     |   52     | Unit Select Tag   |         Y         |
+|  23     |   53     | Unit Select bit 0 |         Y         |
+|  24     |   54     | Unit Select bit 1 |         Y         |
+|  25     |   55     | Sector            |         Y         |
+|  26     |   56     | Unit Select bit 2 |         Y         |
+|  27     |   57     | Unit Select bit 3 |         Y         |
+|  28     |   58     | Write Protected   |         Y         |
+|  29     |          | Pick              |         N         |
+|         |   58     | Hold              |         N         |
+|  30     |   60     | (Tag 4) (3)       |         N         |
 
 1. Used only with soft sectored disc drives.
 2. Used only with dual channel disc drives.
@@ -54,21 +54,42 @@ The B cable is the data cable and attaches to each of the disc drives.
 
 ### B cable pinout
 
-| Low pin | High pin | Signal name       |
-|---------|----------|-------------------|
-|   2     |   14     | Servo Clock       |
-|   3     |   16     | Read Data         |
-|   5     |   17     | Read Clock        |
-|   6     |   19     | Write Clock       |
-|   8     |   20     | Write Data        |
-|  22     |    9     | Unit Selected     |
-|  12     |   24     | Index             |
-|  13     |   26     | Sector            |
-|   1     |          | GND               |
-|   4     |          | GND               |
-|   7     |          | GND               |
-|  11     |          | GND               |
-|  15     |          | GND               |
-|  18     |          | GND               |
-|  21     |          | GND               |
-|  25     |          | GND               |
+| Low pin | High pin | Signal name       | Used by emulation |
+|---------|----------|-------------------|-------------------|
+|   2     |   14     | Servo Clock       |         Y         |
+|   3     |   16     | Read Data         |         Y         |
+|   5     |   17     | Read Clock        |         Y         |
+|   6     |   19     | Write Clock       |         Y         |
+|   8     |   20     | Write Data        |         Y         |
+|  22     |    9     | Unit Selected     |         Y         |
+|  12     |   24     | Index             |         Y         |
+|  13     |   26     | Sector            |         Y         |
+|   1     |          | GND               |         Y         |
+|   4     |          | GND               |         Y         |
+|   7     |          | GND               |         Y         |
+|  11     |          | GND               |         Y         |
+|  15     |          | GND               |         Y         |
+|  18     |          | GND               |         Y         |
+|  21     |          | GND               |         Y         |
+|  25     |          | GND               |         Y         |
+
+SMD interface
+-------------
+
+The SMD interafce has foru tag signals, Unit Select tag, Tag 1, Tag 2 and Tag3. The tag signals act as strobe signals. Unit Select Tag is used to strobe the Unit Select Bit 0 - Unit Select Bit 3 into the drive. Tag 1 - Tag 3 is used to strobe in the data on the Bus 0 - Bus 9 signals. Tag 1 strobes the cylinder address, Tag 2 strobes the head address and Tag 3 strobes Write gate, Read gate, Servo Offset Plus, Servo Offset Minus, Fault Clear, Address Mark Enable, RTZ, Data Strobe Early, Data Strobe Late and Release.
+
+This emulation would only use the Unit Select tag for unit selection,  Tag 1 for Track, Tag 2 for Head and Tag 3 for Write Gate, Read Gate, Fault Clear, RTZ.
+
+The Index and Sector sigals is generated by the emulation and provided both in the A and B cables. These signals is generated by chained timers inside the STM32 chip. The emulation also generate the 10 MHz Servo Clock signal and Read Clock signal using a timer inside the STM32.
+
+The emulation generate Write Protected, Unit Ready, On Cylinder, Seek Error and Fault signals on the A cable and Unit Selected on the B cable. It handles the Open Cable Detect signal on the A cable.
+
+Not supported signals are Busy, AM Found, Pick, Hold, and Tag 4.
+
+Write Data is handled by one of the SPI peripherlas in the STM32. The clock signals used is the Write Clock signal from the controller which has been gated by the latched Write Gate signal. Thus data is recived only when the Write gate is enabled.
+
+Read Data is handled similarily by a SPI peripheral in the STM32. The clock signal is gated by the latched Read Gate signal as received from the controller and isthe 10 MHz Read Clock and Servo clock generated by a timer peripheral in the STM32 chip. 
+
+The logic inside the STM32 program checks if a read SPi character is available, it then reads it and writes it to the RAM at an offset taken from the current byte position which is caclulated by the Index and Sector timer peripherals. It then chcks if there is the send buffer is empty. In that case it reads a memory buffer at same position and writes it to the send buffer. Then repeat.
+
+Interrupt basesd logic handles the Tag 1, Tag 2, Tag 3 and Unit Select Tag signals together with the Unit Select bits and Bus bits to selct a particular unit or to perform a seek.
