@@ -19,18 +19,18 @@ The B cable is the data cable and attaches to each of the disc drives.
 |   1     |   31     | Tag 1             |
 |   2     |   32     | Tag 2             |
 |   3     |   33     | Tag 3             |
-|   4     |   34     | Tag 1             |
-|   5     |   35     | Bus 0             |
-|   6     |   36     | Bus 1             |
-|   7     |   37     | Bus 2             |
-|   8     |   38     | Bus 3             |
-|   9     |   39     | Bus 4             |
-|  10     |   40     | Bus 5             |
-|  11     |   41     | Bus 6             |
-|  12     |   42     | Bus 7             |
-|  13     |   43     | Bus 8             |
-|  14     |   44     | Bus 9             |
-|  15     |   45     | Bus 10            |
+|   4     |   34     | Bus 0             |
+|   5     |   35     | Bus 1             |
+|   6     |   36     | Bus 2             |
+|   7     |   37     | Bus 3             |
+|   8     |   38     | Bus 4             |
+|   9     |   39     | Bus 5             |
+|  10     |   40     | Bus 6             |
+|  11     |   41     | Bus 7             |
+|  12     |   42     | Bus 8             |
+|  13     |   43     | Bus 9             |
+|  14     |   44     | Open Cable Detect |
+|  15     |   45     | Fault             |
 |  16     |   46     | Channel Ready     |
 |  17     |   47     | On Cylinder       |
 |  18     |   48     | Index             |
@@ -48,9 +48,9 @@ The B cable is the data cable and attaches to each of the disc drives.
 |         |   58     | Hold              |
 |  30     |   60     | (Tag 4) (3)       |
 
-(1) Used only with soft sectored disc drives.
-(2) Used only with dual channel disc drives.
-(3) The SMD-E interface is supporting Tag 4 and Tag 5.
+1. Used only with soft sectored disc drives.
+2. Used only with dual channel disc drives.
+3. The SMD-E interface is supporting Tag 4 and Tag 5.
 
 ### B cable pinout
 
