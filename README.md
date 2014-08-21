@@ -128,6 +128,6 @@ The track is stored in raw format in RAm and then written back to flash in disk 
 | Data Area                         | n            |       |
 | CRC                               | 2            |       |
 | EOR Pad                           | 1            |       |
-| Gap 3                             |              |       |
+| Gap 3                             | 11           |       |
 
 Interrupt basesd logic handles the Tag 1, Tag 2, Tag 3 and Unit Select Tag signals together with the Unit Select bits and Bus bits to selct a particular unit or to perform a seek.
