@@ -130,4 +130,4 @@ The track is stored in raw format in RAm and then written back to flash in disk 
 | EOR Pad                           | 1            |       |
 | Gap 3                             | 11           |       |
 
-Interrupt basesd logic handles the Tag 1, Tag 2, Tag 3 and Unit Select Tag signals together with the Unit Select bits and Bus bits to selct a particular unit or to perform a seek.
+Interrupt based logic handles the Tag 1, Tag 2 and Unit Select Tag signals together with the Unit Select bits and Bus bits to selct a particular unit or to perform a seek. Bus signals is latched with Tag 3 to handle Write Gate, Read Gate, Fault Clear and RTZ.
