@@ -130,4 +130,4 @@ The track is stored in raw format in RAm and then written back to flash in disk 
 | EOR Pad                           | 1            |       |
 | Gap 3                             | 11           |       |
 
-Interrupt based logic handles the Tag 1, Tag 2 and Unit Select Tag signals together with the Unit Select bits and Bus bits to selct a particular unit or to perform a seek. Bus signals is latched  with Tag 3 using an external 74HCT75 latch to handle Write Gate, Read Gate, Fault Clear and RTZ.
+Interrupt based logic handles the Tag 1, Tag 2 and Unit Select Tag signals together with the Unit Select bits and Bus bits to selct a particular unit or to perform a seek. Bus signals is latched  with Tag 3 using an external 74HCT75 latch to handle Write Gate, Read Gate, Fault Clear and RTZ. Write Gate and Read gate signals is feed is directly gating the clock signal whereas the RTZ and Fault Clear is feed into the STM32 microcontroller which is using edge triggered interrupts to detect changes in these signals.
