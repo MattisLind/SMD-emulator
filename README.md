@@ -13,39 +13,39 @@ The B cable is the data cable and attaches to each of the disc drives.
 
 #### A cable pinout
 
-| Low pin | High pin | Signal name       | Used by emulation |
-|---------|----------|-------------------|-------------------|
-|   1     |   31     | Tag 1             |         Y         |
-|   2     |   32     | Tag 2             |         Y         |
-|   3     |   33     | Tag 3             |         Y         |
-|   4     |   34     | Bus 0             |         Y         |
-|   5     |   35     | Bus 1             |         Y         |
-|   6     |   36     | Bus 2             |         Y         |
-|   7     |   37     | Bus 3             |         Y         |
-|   8     |   38     | Bus 4             |         Y         |
-|   9     |   39     | Bus 5             |         Y         |
-|  10     |   40     | Bus 6             |         Y         |
-|  11     |   41     | Bus 7             |         Y         |
-|  12     |   42     | Bus 8             |         Y         |
-|  13     |   43     | Bus 9             |         Y         |
-|  14     |   44     | Open Cable Detect |         Y         |
-|  15     |   45     | Fault             |         Y         |
-|  16     |   46     | Seek Error        |         Y         |
-|  17     |   47     | On Cylinder       |         Y         |
-|  18     |   48     | Index             |         Y         |
-|  19     |   49     | Unit Ready        |         Y         |
-|  20     |   50     | (AM Found)  (1)   |         N         |
-|  21     |   51     | (Busy)  (2)       |         N         |
-|  22     |   52     | Unit Select Tag   |         Y         |
-|  23     |   53     | Unit Select bit 0 |         Y         |
-|  24     |   54     | Unit Select bit 1 |         Y         |
-|  25     |   55     | Sector            |         Y         |
-|  26     |   56     | Unit Select bit 2 |         Y         |
-|  27     |   57     | Unit Select bit 3 |         Y         |
-|  28     |   58     | Write Protected   |         Y         |
-|  29     |          | Pick              |         N         |
-|         |   58     | Hold              |         N         |
-|  30     |   60     | (Tag 4) (3)       |         N         |
+| Low pin | High pin | Signal name       | Used by emulation | Send / Receive  |
+|---------|----------|-------------------|-------------------|-----------------|
+|   1     |   31     | Tag 1             |         Y         |      Rx         |
+|   2     |   32     | Tag 2             |         Y         |      Rx         |
+|   3     |   33     | Tag 3             |         Y         |      Rx         |
+|   4     |   34     | Bus 0             |         Y         |      Rx         |
+|   5     |   35     | Bus 1             |         Y         |      Rx         |
+|   6     |   36     | Bus 2             |         Y         |      Rx         |
+|   7     |   37     | Bus 3             |         Y         |      Rx         |
+|   8     |   38     | Bus 4             |         Y         |      Rx         |
+|   9     |   39     | Bus 5             |         Y         |      Rx         |
+|  10     |   40     | Bus 6             |         Y         |      Rx         |
+|  11     |   41     | Bus 7             |         Y         |      Rx         |
+|  12     |   42     | Bus 8             |         Y         |      Rx         |
+|  13     |   43     | Bus 9             |         Y         |      Rx         |
+|  14     |   44     | Open Cable Detect |         Y         |      Rx         |
+|  15     |   45     | Fault             |         Y         |      Tx         |
+|  16     |   46     | Seek Error        |         Y         |      Tx         |
+|  17     |   47     | On Cylinder       |         Y         |      Tx         |
+|  18     |   48     | Index             |         Y         |      Tx         |
+|  19     |   49     | Unit Ready        |         Y         |      Tx         |
+|  20     |   50     | (AM Found)  (1)   |         N         |      NA         |
+|  21     |   51     | (Busy)  (2)       |         N         |      NA         |
+|  22     |   52     | Unit Select Tag   |         Y         |      Rx         |
+|  23     |   53     | Unit Select bit 0 |         Y         |      Rx         |
+|  24     |   54     | Unit Select bit 1 |         Y         |      Rx         |
+|  25     |   55     | Sector            |         Y         |      Tx         |
+|  26     |   56     | Unit Select bit 2 |         Y         |      Rx         |
+|  27     |   57     | Unit Select bit 3 |         Y         |      Rx         |
+|  28     |   58     | Write Protected   |         Y         |      Tx         |
+|  29     |          | Pick              |         N         |      NA         |
+|         |   58     | Hold              |         N         |      NA         |
+|  30     |   60     | (Tag 4) (3)       |         N         |      NA         |
 
 1. Used only with soft sectored disc drives.
 2. Used only with dual channel disc drives.
@@ -53,27 +53,30 @@ The B cable is the data cable and attaches to each of the disc drives.
 
 ### B cable pinout
 
-| Low pin | High pin | Signal name       | Used by emulation |
-|---------|----------|-------------------|-------------------|
-|   2     |   14     | Servo Clock       |         Y         |
-|   3     |   16     | Read Data         |         Y         |
-|   5     |   17     | Read Clock        |         Y         |
-|   6     |   19     | Write Clock       |         Y         |
-|   8     |   20     | Write Data        |         Y         |
-|  22     |    9     | Unit Selected     |         Y         |
-|  12     |   24     | Index             |         Y         |
-|  13     |   26     | Sector            |         Y         |
-|   1     |          | GND               |         Y         |
-|   4     |          | GND               |         Y         |
-|   7     |          | GND               |         Y         |
-|  11     |          | GND               |         Y         |
-|  15     |          | GND               |         Y         |
-|  18     |          | GND               |         Y         |
-|  21     |          | GND               |         Y         |
-|  25     |          | GND               |         Y         |
+| Low pin | High pin | Signal name       | Used by emulation | Send / Receive  |
+|---------|----------|-------------------|-------------------|-----------------|
+|   2     |   14     | Servo Clock       |         Y         |      Tx         |
+|   3     |   16     | Read Data         |         Y         |      Tx         |
+|   5     |   17     | Read Clock        |         Y         |      Tx         |
+|   6     |   19     | Write Clock       |         Y         |      Rx         |
+|   8     |   20     | Write Data        |         Y         |      Rx         |
+|  22     |    9     | Unit Selected     |         Y         |      Tx         |
+|  12     |   24     | Index             |         Y         |      Tx         |
+|  13     |   26     | Sector            |         Y         |      Tx         |
+|   1     |          | GND               |         Y         |      NA         |
+|   4     |          | GND               |         Y         |      NA         |
+|   7     |          | GND               |         Y         |      NA         |
+|  11     |          | GND               |         Y         |      NA         |
+|  15     |          | GND               |         Y         |      NA         |
+|  18     |          | GND               |         Y         |      NA         |
+|  21     |          | GND               |         Y         |      NA         |
+|  25     |          | GND               |         Y         |      NA         |
 
 SMD interface
 -------------
+
+In total 21 signal are received and handled by 11 75110 chips and 13 signals are transmitted and handled by 7 75107 chips.
+
 
 ![Index Sector timing](http://i.imgur.com/uuZ3x6B.png "Index Sector Timing")
 
