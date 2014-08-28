@@ -133,3 +133,5 @@ The track is stored in raw format in RAm and then written back to flash in disk 
 | Gap 3                             | 11           |       |
 
 Interrupt based logic handles the Tag 1, Tag 2 and Unit Select Tag signals together with the Unit Select bits and Bus bits to selct a particular unit or to perform a seek. Bus signals is stored with Tag 3 as clock signal using an external 74LVC374 octal flip flop to handle Write Gate, Read Gate, Fault Clear and RTZ. Write Gate and Read gate signals is feed is directly gating the clock signal whereas the RTZ and Fault Clear is feed into the STM32 microcontroller which is using edge triggered interrupts to detect changes in these signals.
+
+56 ohm terminatotion reistors is required for the B cable, In total four resistors are required. For the A cable termination resistors are only required if this is the last drive in the chain. Total 42 signals has to be terminated in the drive (including the non used signals)
