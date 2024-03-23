@@ -1,6 +1,8 @@
 SMD-emulator
 ============
 
+This project has been deemed not feasible, but still keep it here since it contain valuable information.
+
 SMD emulator using SD card
 
 This project aim to create an SMD disk drive emulator that uses a SD card as storage. It is supposed to be used with a [Emulex UD33 Unibus SMD controller](http://bitsavers.informatik.uni-stuttgart.de/pdf/emulex/UD3351002-G_UD33_Sep90.pdf) or the [Norsk Data ND-10/S system](http://www.datormuseum.se/computers/others/nord-10-s) and the [controller](https://dl.dropboxusercontent.com/u/96935524/Datormusuem/ND-11013-01A-EN.pdf) it uses. The soluton would be based on a STM32 family chip and some logic and line drivers and receivers.
